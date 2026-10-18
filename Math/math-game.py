@@ -1,6 +1,6 @@
 #Math Game
 #Created by Jhonatas Góis
-#Build version: 1.4
+#Build version: 1.5
 import time
 from random import sample
 from Math import interface, operacao
@@ -16,28 +16,35 @@ while True:
         while True:
             try:
                 resp = int(input("Selecione uma opção: "))
-                if 1 <= resp <= 4:
+                if 1 <= resp <= 5:
                     break
                 print("\033[1;31mErro! Opção inválida, tente novamente.\033[m")
             except ValueError:
-                print("\033[1;31mErro! Digite um número de 1 a 4.\033[m")
+                print("\033[1;31mErro! Digite um número de 1 a 5.\033[m")
 
         simbolo = operacao.simb(resp) #simbolo da operação
 
         #validação da escolha da tabuada
         while True:
             try:
-                interface.dificuldade()
-                nivel = int(input("Selecione uma dificuldade: "))
-                if 1 <= nivel <= 3:
-                    tabuada = operacao.nivel_tabuadas(nivel)
+                if 1 <= resp <= 4:
+                    interface.dificuldade()
+                    nivel = int(input("Selecione uma dificuldade: "))
+                    if 1 <= nivel <= 3:
+                        tabuada = operacao.nivel_tabuadas(nivel)
+                        break
+                    print("\033[1;31mErro! Opção inválida, tente novamente.\033[m")
+                else:
+                    tabuada = 0
                     break
-                print("\033[1;31mErro! Opção inválida, tente novamente.\033[m")
             except ValueError:
                 print("\033[1;31mErro! Por favor, digite um número de 1 a 3.\033[m")
 
         #ordena de forma aleatória números de 1 a 10
-        ordem_perguntas = sample(range(1, 11), 10)
+        if resp == 5:
+            ordem_perguntas = sample(range(1, 2), 1)
+        else:
+            ordem_perguntas = sample(range(1, 11), 10)
 
         #inicia o cronômetro
         tempo_inicio = time.time()
@@ -46,7 +53,12 @@ while True:
             solucao = operacao.opcao(resp, tabuada, numero)
 
             while True:
-                print("\033[0;41m", tabuada, f"{simbolo} {numero} \033[m = ", end='')
+                #Se sequências lógicas, imprimir na tela a pergunta
+                if resp == 5:
+                    print("Qual o oitavo valor da sequência?: ", end="")
+                else:
+                    print("\033[0;41m", tabuada, f"{simbolo} {numero} \033[m = ", end='')
+
                 try:
                     resposta = float(input("").strip().replace(",", "."))
 
