@@ -65,3 +65,4 @@ def sequencias_log():
         print(f"\033[0;41m{valor},", end=" ")
     print("...\033[m")
     return sequencia
+##Melhorar as sequências e as perguntas lógicas
