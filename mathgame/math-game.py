@@ -3,7 +3,7 @@
 #Build version: 1.5
 import time
 from random import sample
-from Math import interface, operacao
+from mathgame import interface, operacao
 
 interface.titulo("Math Game")
 
