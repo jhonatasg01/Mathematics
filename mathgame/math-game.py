@@ -79,7 +79,7 @@ while True:
 
         #dados de desempenho do jogador
         print("\033[0;47m" + "-" * 25)
-        print(f"\033[1;31;47mErros: {erros}\n\033[1;32;47mAcertos: {acertos}\n\033[1;34mTempo gasto: {tempo_gasto:.2f}ms")
+        print(f"\033[1;31;47mErros: {erros}\n\033[1;32;47mAcertos: {acertos}\n\033[1;34mTempo gasto: {tempo_gasto:.2f}s")
         print("\033[m\033[0;47m" + "-" * 25 + "\n\033[m", end="")
 
         #finalizador do programa
