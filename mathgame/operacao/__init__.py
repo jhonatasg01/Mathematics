@@ -33,13 +33,13 @@ def opcao(opera, tabuadas=0, num=0):
         case 1:
             return num + tabuadas
         case 2:
-            return num - tabuadas
+            return tabuadas - num
         case 3:
             return num * tabuadas
         case 4:
             if tabuadas == 0:
                 return 0 #evitando divisão por 0
-            return round(num / tabuadas, 2)
+            return round(tabuadas / num, 2)
         case 5:
             #Resposta das sequências lógicas da função sequencias_log()
             seq = sequencias_log()
